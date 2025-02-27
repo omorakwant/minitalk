@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:37:15 by odahriz           #+#    #+#             */
-/*   Updated: 2025/02/27 09:59:01 by odahriz          ###   ########.fr       */
+/*   Created: 2025/01/01 11:35:29 by odahriz           #+#    #+#             */
+/*   Updated: 2025/01/03 15:55:05 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "ft_printf.h"
 
-int main()
+int	ft_puthexa(unsigned long n, char c)
 {
-	pid_t dip = getpid();
-	ft_printf("%d\n",dip);
-	while(1)
-	{
-		pause();
-	}
-	return 0;
+	char	*s;
+	int		count;
+
+	count = 0;
+	s = "0123456789abcdef";
+	if (c == 'X')
+		s = "0123456789ABCDEF";
+	if (n >= 16)
+		count += ft_puthexa(n / 16, c);
+	count += ft_putchar(s[n % 16]);
+	return (count);
 }

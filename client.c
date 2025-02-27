@@ -1,22 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 09:53:03 by odahriz           #+#    #+#             */
+/*   Updated: 2025/02/27 10:19:47 by odahriz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
-// void handler(int signum)
-// {
-// 	printf("got signal %d \n", signum);
-// 	exit(0);
-// }
-int main()
+int main(int ac, char **av)
 {
-	int a;
-	printf("entre d ipd server");
-	scanf("%d",&a);
-
-	kill(a,SIGUSR1);
-
-	// signal(SIGINT, handler);
-	// while(1)
-	// {
-	// 	printf("working\n");
-	// 	sleep(1);
-	// }
+	pid_t	pid;
+	
+	if (ac == 3)
+	{
+		signal(SIGUSR1,pid);
+		kill(SIGUSR1, pid);
+	}
+	else 
+		ft_printf("error number of arguments low!!!");
+	exit;
 }

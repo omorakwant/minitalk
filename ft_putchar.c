@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:37:15 by odahriz           #+#    #+#             */
-/*   Updated: 2025/02/27 09:59:01 by odahriz          ###   ########.fr       */
+/*   Created: 2024/11/25 10:20:15 by odahriz           #+#    #+#             */
+/*   Updated: 2025/01/04 18:38:24 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "ft_printf.h"
 
-int main()
+int	ft_putchar(int c)
 {
-	pid_t dip = getpid();
-	ft_printf("%d\n",dip);
-	while(1)
-	{
-		pause();
-	}
-	return 0;
+	return (write(1, &c, 1));
 }

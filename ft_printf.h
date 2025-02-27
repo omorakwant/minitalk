@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:37:15 by odahriz           #+#    #+#             */
-/*   Updated: 2025/02/27 09:59:01 by odahriz          ###   ########.fr       */
+/*   Created: 2024/11/25 10:21:20 by odahriz           #+#    #+#             */
+/*   Updated: 2025/01/05 18:02:04 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int main()
-{
-	pid_t dip = getpid();
-	ft_printf("%d\n",dip);
-	while(1)
-	{
-		pause();
-	}
-	return 0;
-}
+# include <stdarg.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+int	ft_printf(const char *format, ...);
+int	ft_putchar(int c);
+int	ft_putstr(char *s);
+int	ft_putnbr(long n);
+int	ft_puthexa(unsigned long n, char c);
+int	ft_putptr(void *ptr);
+
+#endif

@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:37:15 by odahriz           #+#    #+#             */
-/*   Updated: 2025/02/27 09:59:01 by odahriz          ###   ########.fr       */
+/*   Created: 2024/12/30 14:40:45 by odahriz           #+#    #+#             */
+/*   Updated: 2025/01/05 14:56:31 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "ft_printf.h"
 
-int main()
+int	ft_putptr(void *ptr)
 {
-	pid_t dip = getpid();
-	ft_printf("%d\n",dip);
-	while(1)
+	unsigned long	s;
+	int				count;
+
+	count = 0;
+	if (ptr == NULL)
 	{
-		pause();
+		write(1, "(nil)", 5);
+		return (5);
 	}
-	return 0;
+	s = (unsigned long)ptr;
+	count += ft_putstr("0x");
+	count += ft_puthexa(s, 'x');
+	return (count);
 }
