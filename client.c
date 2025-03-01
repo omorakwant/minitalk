@@ -6,7 +6,7 @@
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 09:53:03 by odahriz           #+#    #+#             */
-/*   Updated: 2025/03/01 21:26:10 by odahriz          ###   ########.fr       */
+/*   Updated: 2025/03/01 21:34:18 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,13 @@ int	main(int ac, char **av)
 	if (ac == 3)
 	{
 		pid = ft_atoi(av[1]);
+		if (pid <= 0 || pid > 4194304)
+		{
+			ft_printf("The provided PID is outside the valid range!");
+			exit(1);
+		}
 		sender(pid, av[2]);
 	}
 	else
-		ft_printf("error number of arguments low!!!");
+		ft_printf("error number of arguments is invalid please provide 2 arguments only!!!");
 }
