@@ -1,21 +1,31 @@
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-TARGETS = client server
+NAME = client server
 OBJECTS = client.o server.o
+PRINTF = ft_printf/
+LIBFT = libft/
 
-all: $(TARGETS)
+all: $(NAME)
 
 server: server.o
-	$(CC) $(FLAGS) server.o -o server
+	$(CC) $(FLAGS) server.o $(PRINTF)printf.a $(LIBFT)libft.a -o server
 
 client: client.o
-	$(CC) $(FLAGS) client.o -o client
+	make -C $(PRINTF)
+	make -C $(LIBFT)
+	$(CC) $(FLAGS) client.o $(PRINTF)printf.a $(LIBFT)libft.a -o client
 
 clean:
+	make clean -C $(PRINTF)
+	make clean -C $(LIBFT)
 	rm -f *.o
 
 fclean: clean
-	rm -rf $(TARGETS)
+	make fclean -C $(PRINTF)
+	make fclean -C $(LIBFT)
+	rm -rf $(NAME)
+	
+re : fclean all
 
 .SECONDARY: $(OBJECTS)
 

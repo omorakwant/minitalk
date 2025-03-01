@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:38:59 by odahriz           #+#    #+#             */
-/*   Updated: 2025/03/01 20:56:13 by odahriz          ###   ########.fr       */
+/*   Created: 2024/10/27 15:50:40 by odahriz           #+#    #+#             */
+/*   Updated: 2024/11/16 11:56:10 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
-# include <signal.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <unistd.h>
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char		*d;
+	const unsigned char	*s;
 
-#endif
+	if (dest == src || n == 0)
+		return (dest);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (d < s)
+	{
+		while (n--)
+			*d++ = *s++;
+	}
+	else
+	{
+		d += n;
+		s += n;
+		while (n--)
+			*(--d) = *(--s);
+	}
+	return (dest);
+}

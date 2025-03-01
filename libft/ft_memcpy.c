@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:38:59 by odahriz           #+#    #+#             */
-/*   Updated: 2025/03/01 20:56:13 by odahriz          ###   ########.fr       */
+/*   Created: 2024/10/24 09:55:03 by odahriz           #+#    #+#             */
+/*   Updated: 2024/11/16 13:39:31 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
-# include <signal.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <unistd.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t			i;
+	unsigned char	*p;
+	const char		*s;
 
-#endif
+	p = dest;
+	s = src;
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	while (i < n)
+	{
+		p[i] = s[i];
+		i++;
+	}
+	return (dest);
+}

@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:38:59 by odahriz           #+#    #+#             */
-/*   Updated: 2025/03/01 20:56:13 by odahriz          ###   ########.fr       */
+/*   Created: 2024/10/23 11:24:13 by odahriz           #+#    #+#             */
+/*   Updated: 2024/10/30 13:22:56 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
-# include <signal.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <unistd.h>
-
-#endif
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
+}

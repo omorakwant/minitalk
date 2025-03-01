@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:38:59 by odahriz           #+#    #+#             */
-/*   Updated: 2025/03/01 20:56:13 by odahriz          ###   ########.fr       */
+/*   Created: 2024/10/23 13:02:31 by odahriz           #+#    #+#             */
+/*   Updated: 2024/11/17 10:54:30 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
-# include <signal.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <unistd.h>
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*ptr;
 
-#endif
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = (unsigned char)c;
+		i++;
+	}
+	return (ptr);
+}

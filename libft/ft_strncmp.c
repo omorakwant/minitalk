@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 14:38:59 by odahriz           #+#    #+#             */
-/*   Updated: 2025/03/01 20:56:13 by odahriz          ###   ########.fr       */
+/*   Created: 2024/11/01 09:14:45 by odahriz           #+#    #+#             */
+/*   Updated: 2024/11/16 13:22:49 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
-# include <signal.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <unistd.h>
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	{
+		if (s1[i] > s2[i] || s1[i] < s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}
