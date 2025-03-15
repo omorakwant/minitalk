@@ -2,6 +2,8 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 NAME = client server
 OBJECTS = client.o server.o
+BONUS = client_bonus server_bonus
+BONUS_OBJ = client_bonus.o server_bonus.o
 PRINTF = ft_printf/
 LIBFT = libft/
 
@@ -14,6 +16,14 @@ $(LIBFTA):
 	make -C $(LIBFT)
 $(PRINTFA):
 	make -C $(PRINTF)
+
+bonus: $(LIBFTA) $(PRINTFA) $(BONUS)
+	
+server_bonus: server_bonus.o
+	$(CC) $(FLAGS) server_bonus.o $(PRINTF)printf.a $(LIBFT)libft.a -o server_bonus
+
+client_bonus: client_bonus.o
+	$(CC) $(FLAGS) client_bonus.o $(PRINTF)printf.a $(LIBFT)libft.a -o client_bonus
 
 server: server.o
 	$(CC) $(FLAGS) server.o $(PRINTF)printf.a $(LIBFT)libft.a -o server
@@ -29,10 +39,10 @@ clean:
 fclean: clean
 	make fclean -C $(PRINTF)
 	make fclean -C $(LIBFT)
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(BONUS)
 	
 re : fclean all
 
-.SECONDARY: $(OBJECTS)
+.SECONDARY: $(OBJECTS) $(BONUS_OBJ)
 
 .PHONY: all clean fclean
