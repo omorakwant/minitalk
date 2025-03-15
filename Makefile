@@ -5,14 +5,20 @@ OBJECTS = client.o server.o
 PRINTF = ft_printf/
 LIBFT = libft/
 
-all: $(NAME)
+PRINTFA = ft_printf/printf.a
+LIBFTA = libft/libft.a
+
+all: $(LIBFTA) $(PRINTFA) $(NAME)
+
+$(LIBFTA):
+	make -C $(LIBFT)
+$(PRINTFA):
+	make -C $(PRINTF)
 
 server: server.o
 	$(CC) $(FLAGS) server.o $(PRINTF)printf.a $(LIBFT)libft.a -o server
 
 client: client.o
-	make -C $(PRINTF)
-	make -C $(LIBFT)
 	$(CC) $(FLAGS) client.o $(PRINTF)printf.a $(LIBFT)libft.a -o client
 
 clean:

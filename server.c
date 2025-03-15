@@ -6,7 +6,7 @@
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:37:15 by odahriz           #+#    #+#             */
-/*   Updated: 2025/03/01 21:27:25 by odahriz          ###   ########.fr       */
+/*   Updated: 2025/03/09 17:05:08 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void	handler(int signal, siginfo_t *info, void *none)
 	a++;
 	if (a == 8)
 	{
+		if (msg == 0)
+		{
+			kill(info->si_pid, SIGUSR1);
+		}
 		ft_printf("%c", msg);
 		a = 0;
 		msg = 0;

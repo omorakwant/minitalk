@@ -6,7 +6,7 @@
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:03:55 by odahriz           #+#    #+#             */
-/*   Updated: 2024/11/17 11:31:16 by odahriz          ###   ########.fr       */
+/*   Updated: 2025/03/09 16:48:29 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t n);
-int		ft_atoi(const char *nptr);
+long	ft_atoi(const char *nptr);
 
 #endif
